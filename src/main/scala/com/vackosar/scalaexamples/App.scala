@@ -1,0 +1,9 @@
+package com.vackosar.scalaexamples
+
+/**
+ * Hello world!
+ *
+ */
+object App extends App {
+  println( "Hello World!" )
+}
