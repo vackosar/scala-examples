@@ -15,7 +15,7 @@ class BasicsTest {
   }
 
   @Test
-  def companionClassAcessedPrivateFieldsOfObject(): Unit = {
+  def companionClassAccessedPrivateFieldsOfObject(): Unit = {
     object A { private val V = "text"}
     class A(val a: String = A.V)
     assertEquals("text", new A().a)
