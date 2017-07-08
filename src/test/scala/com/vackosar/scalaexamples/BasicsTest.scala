@@ -13,6 +13,12 @@ class BasicsTest {
   }
 
   @Test
+  def caseClassesAreCopiedStructurally(): Unit = {
+    case class A(text: String)
+    assertEquals(A("a").copy(), A("a"))
+  }
+
+  @Test
   def caseObjectsAreSerializable(): Unit = {
     case object B { val text: String = "text"}
     assertTrue(B.isInstanceOf[Serializable])
