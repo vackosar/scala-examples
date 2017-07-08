@@ -26,4 +26,27 @@ class CollectionsTest {
     val set = Set(A(1), A(2), A(3), A(4))
     assertEquals(set, set + A(1))
   }
+
+  @Test
+  def options(): Unit = {
+    assertEquals("something", Option(null).getOrElse("something"))
+    assertEquals(None, Option(null))
+    assertEquals("a", Some("a").get)
+  }
+
+  @Test
+  def tuple(): Unit = {
+    val tuple = (1, 2, 3)
+    assertEquals(1, tuple._1)
+    val (first, second, third) = tuple
+    assertEquals(2, second)
+  }
+
+  @Test
+  def map(): Unit = {
+    val map = Map(1 -> 2, 2 -> 3)
+    assertEquals(2, map(1))
+    assertEquals(Some(3), map.get(2))
+    assertEquals(None, map.get(4))
+  }
 }
