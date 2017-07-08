@@ -59,4 +59,14 @@ class CollectionsTest {
     assertEquals(0, empty.foldLeft(0)((a, b) => a + b + 0))
   }
 
+  @Test
+  def forExpression(): Unit = {
+    val result = for {
+      a <- 1 to 3
+      b <- List(3, 4, 4) if b > 3
+    } yield a * b
+
+    assertEquals(Vector(4, 4, 8, 8, 12, 12), result)
+  }
+
 }
