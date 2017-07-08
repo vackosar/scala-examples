@@ -49,4 +49,14 @@ class CollectionsTest {
     assertEquals(Some(3), map.get(2))
     assertEquals(None, map.get(4))
   }
+
+  @Test
+  def reduceAndFold(): Unit = {
+    val two = Array(1, 2)
+    val empty = Array[Int]()
+    assertEquals(3, two.reduce((a, b) => a + b + 0))
+    assertEquals(3, two.foldLeft(0)((a, b) => a + b + 0))
+    assertEquals(0, empty.foldLeft(0)((a, b) => a + b + 0))
+  }
+
 }
