@@ -10,7 +10,6 @@ class BasicsTest {
   def caseClassesAreComparedStructurally(): Unit = {
     case class A(text: String)
     assertEquals(A("a"), A("a"))
-
   }
 
   @Test
@@ -27,7 +26,16 @@ class BasicsTest {
     assertEquals("text", new A().a)
   }
 
+  @Test
+  def constructorIsApplyMethod(): Unit = {
+    assertArrayEquals(Array(1, 2, 3), Array.apply(1, 2, 3))
+  }
 
+  @Test
+  def unapplyDeconstructsCaseClass(): Unit = {
+    case class A(a: String, b: String)
+    assertEquals(Some("text1", "text2"), A.unapply(A("text1", "text2")))
+  }
 
 }
 
