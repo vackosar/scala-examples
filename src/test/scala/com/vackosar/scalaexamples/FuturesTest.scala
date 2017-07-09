@@ -20,5 +20,6 @@ class FuturesTest {
       case Success(sum) => assertEquals(6, sum)
       case Failure(_) => fail()
     })
+    Future[Int]({1 + 2 + 3}).foreach({assertEquals(6, _)})
   }
 }

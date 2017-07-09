@@ -27,6 +27,12 @@ class FailuresTest {
     val toInt = (s: String) => Try(s.toInt)
     assertEquals(Success(100), toInt("100"))
     assertTrue(toInt("100x").isInstanceOf[Failure[NumberFormatException]])
+
+  }
+
+  @Test
+  def failuresAreNotPropagatedInHOF(): Unit = {
+    Failure(new NumberFormatException).foreach(_ => fail())
   }
 
 }
