@@ -57,6 +57,7 @@ class CollectionsTest {
     assertEquals(3, two.reduce((a, b) => a + b + 0))
     assertEquals(3, two.foldLeft(0)((a, b) => a + b + 0))
     assertEquals(0, empty.foldLeft(0)((a, b) => a + b + 0))
+    assertEquals(6, Map(1->1, 2->5).foldLeft(0){ case (a, b) => a + b._2})
   }
 
   @Test
