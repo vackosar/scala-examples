@@ -32,6 +32,14 @@ class CollectionsTest {
     assertEquals("something", Option(null).getOrElse("something"))
     assertEquals(None, Option(null))
     assertEquals("a", Some("a").get)
+
+    val f = (a: Option[String]) => {
+      a match {
+        case Some(name) => name
+        case None => "No name"
+      }
+    }
+    assertEquals("No name", f(None))
   }
 
   @Test
