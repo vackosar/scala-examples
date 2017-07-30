@@ -1,5 +1,6 @@
 package com.vackosar.scalaexamples
 
+import java.util
 import java.util.concurrent.ForkJoinPool
 
 import org.junit.Test
@@ -21,5 +22,10 @@ class FuturesTest {
       case Failure(_) => fail()
     })
     Future[Int]({1 + 2 + 3}).foreach({assertEquals(6, _)})
+  }
+
+  @Test
+  def test(): Unit = {
+    println(util.Arrays.deepToString("text".split("").asInstanceOf[Array[Object]]))
   }
 }
